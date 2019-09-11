@@ -10,6 +10,7 @@
 
 	<artifactId>core</artifactId>
 	<name>XTF :: Core</name>
+	<version>0.13_EAP7-1258_2</version>
 
 	<dependencies>
 		<dependency>
@@ -58,5 +59,19 @@
 			<artifactId>rxjava</artifactId>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>jboss-qa-releases</id>
+			<name>JBoss QA release repository</name>
+			<url>http://repository.engineering.redhat.com/nexus/content/repositories/jboss-qa-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>jboss-qa-snapshots</id>
+			<name>JBoss QA snapshot repository</name>
+			<url>http://repository.engineering.redhat.com/nexus/content/repositories/jboss-qa-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 
 </project>
