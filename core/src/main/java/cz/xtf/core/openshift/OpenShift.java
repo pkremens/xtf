@@ -982,7 +982,11 @@ public class OpenShift extends DefaultOpenShiftClient {
 	 */
 	public Waiter clean() {
 		for (CustomResourceDefinitionContextProvider crdContextProvider : OpenShift.getCRDContextProviders()) {
-			customResource(crdContextProvider.getContext()).delete(getNamespace());
+			try {
+				customResource(crdContextProvider.getContext()).delete(getNamespace());
+			} catch (Exception e) {
+				log.warn("Failed to clean " + crdContextProvider.getContext().getName(), e);
+			}
 		}
 
 		for (HasMetadata hasMetadata : listRemovableResources()) {
